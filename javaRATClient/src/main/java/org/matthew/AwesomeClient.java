@@ -29,8 +29,8 @@ public class AwesomeClient {
 
     public void executeCommand() throws IOException {
         startCon();
-        System.out.println("Type command to execute");
         String command = scanner.nextLine();
+        System.out.println("done");
         out.println(command);
     }
 

